@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>CRM Admin Panel</title>
+   <!-- Favicon and touch icons -->
+   <link rel="shortcut icon" href="assets/dist/img/ico/favicon.png" type="image/x-icon">
+   <!-- Start Global Mandatory Style
+         =====================================================================-->
+   <!-- jquery-ui css -->
+   <link href="assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+   <!-- Bootstrap -->
+   <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   <!-- Bootstrap rtl -->
+   <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
+   <!-- Lobipanel css -->
+   <link href="assets/plugins/lobipanel/lobipanel.min.css" rel="stylesheet" type="text/css" />
+   <!-- Pace css -->
+   <link href="assets/plugins/pace/flash.css" rel="stylesheet" type="text/css" />
+   <!-- Font Awesome -->
+   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+   <!-- Pe-icon -->
+   <link href="assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css" />
+   <!-- Themify icons -->
+   <link href="assets/themify-icons/themify-icons.css" rel="stylesheet" type="text/css" />
+   <!-- End Global Mandatory Style
+         =====================================================================-->
+   <!-- Start Theme Layout Style
+         =====================================================================-->
+   <!-- Theme style -->
+   <link href="assets/dist/css/stylecrm.css" rel="stylesheet" type="text/css" />
+   <!-- Theme style rtl -->
+   <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
+   <!-- End Theme Layout Style
+         =====================================================================-->
+         <script src="public/js/script.js"></script>
+         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+         <style>
+            .scrollable {
+      height: auto;
+      overflow-x: hidden;
+    }
+         </style>
+
+          <!--This style is for the * in required fields-->
+   <style>
+      .scrollable {
+         height: auto;
+         overflow-x: hidden;
+      }
+
+      .required {
+         color: red;
+      }
+   </style>
+</head>
+
+<body class="hold-transition sidebar-collapse sidebar-mini">
+    <!--preloader
+      <div id="index.html">
+         <div id="status"></div>
+      </div>-->
+      <!-- Site wrapper -->
+     <!-- Site wrapper -->
+   <div class="wrapper">
+     {{>header}} <!-- =============================================== -->
+      <!-- Left side column. contains the sidebar -->
+      <!-- =============================================== -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" >
+         <!-- Content Header (Page header) -->
+         <section class="content-header">
+            <div class="header-icon">
+               <i class="fa fa-users"></i>
+            </div>
+            <div class="header-title">
+               <h1>Add Customer</h1>
+               <small>Customer List</small>
+
+
+            </div>
+
+         </section>
+         <!-- Main content -->
+
+         <section class="content"  >
+            <div class="row justify-content-center">
+               <!-- Form controls -->
+               <div class="col-md-12 "  >
+                  <div class="panel panel-bd lobidrag" style="overflow:scroll;">
+                     <div class="panel-heading">
+                        <div class="btn-group" id="buttonlist">
+                           
+                           <a class="btn btn-success" href="/user_view" role="button"><i class="fa fa-list"></i>customer list</a>
+                              
+                        </div>
+                        
+                     </div>
+                     
+                          
+                           <div class="panel with-nav-tabs " >
+                            <div class="panel-heading" style="background-color: cadetblue;">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab1info" data-toggle="tab">Visa</a></li>
+                                        <li><a href="#tab2info" data-toggle="tab">Business Visa Enquiry</a></li>
+                                        <li><a href="#tab3info" data-toggle="tab">Other</a></li>
+                                        
+                                    </ul>
+                            </div>
+                            <div class="panel-body" style="width: 500px;" >
+                                <div class="tab-content"  >
+                                    <div class="tab-pane fade in active" id="tab1info">
+                                    <form class="justify-content-center" role="form"   action="/save" method="post" class="needs-validation" name="generalform">
+                                    <div class="form-group">
+                                          <div class="enquiry  ">
+                                             <label class="enqiry" for="enquiry">
+                                                <h6>What's this enquiry about?</h6>
+                                             </label><span class="required">*</span>
+                                             <select class="form-control" id="enquiry" name="enquiry" required>
+                                                <option value="" salected></option>
+                                                <option>General</option>
+                                                <option>A Business Sponsorship</option>
+                                                <option>other</option> 
+                                             </select>
+                                          </div>
+                                       </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                          <div class="title  ">
+                                             <label class="title" for="title">
+                                                <h6>Title</h6>
+                                             </label><span class="required">*</span>
+                                             <select class="form-control" id="title" name="user_title" required>
+                                                <option value="" salected></option>
+                                                <option>Mr</option>
+                                                <option>Mrs</option>
+                                                <option>Miss</option>
+                                                <option>Ms</option>
+                                                <option>Dr</option>
+                                                <option>Other</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                    
+                                    <hr class="seperator">
+                                       <div class="form-group w-60 ">
+                                          <label for="firstName" class="firstName">
+                                             <h6>First Name</h6>
+                                          </label><span class="required">*</span>
+                                          <div class="firstName">
+                                             <input type="text" id="user_name" name="user_name" placeholder="John"
+                                                class="form-control" autofocus required>
+                                          </div>
+                                       </div>
+                               <hr class="seperator">
+                               <div class="form-group w-60 ">
+                                          <label for="lastName" class="lastName">
+                                             <h6>Last Name</h6>
+                                          </label><span class="required">*</span>
+                                          <div class="lastname">
+                                             <input type="text" id="user_surame" name="user_surname" placeholder="Smith"
+                                                class="form-control" autofocus required>
+                                          </div>
+                                       </div>
+ <hr class="seperator">
+ <div class="form-group w-60">
+                                          <label for="birthDate">
+                                             <h6>Date of Birth</h6>
+                                          </label><span class="required">*</span>
+                                          <div class="birthDate">
+                                             <input type="date" id="user_birthday" name="user_birthday"
+                                                class="form-control" required>
+                                          </div>
+                                       </div>
+<hr class="seperator"><div class="form-group w-60">
+                                          <div class="row">
+                                         <div class="col">
+                                            <div class="col col-sm-5">
+                                            <label for="phoneNumber" class="">
+                                              <h6>Country code</h6>
+                                              </label><span class="required">*</span>
+                                           </label>
+                                           <select class="form-control" name="countryCode" id="">
+                                           <option data-countryCode="GB" value="44" Selected>Norway (+47)</option>
+                                           <option data-countryCode="US" value="1">UK (+44)</option>
+                                           <optgroup label="Other countries">
+                                              <option data-countryCode="DZ" value="213">Algeria (+213)</option>
+                                              <option data-countryCode="AD" value="376">Andorra (+376)</option>
+                                              <option data-countryCode="AO" value="244">Angola (+244)</option>
+                                              <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
+                                              <option data-countryCode="AG" value="1268">Antigua &amp; Barbuda (+1268)</option>
+                                              <option data-countryCode="AR" value="54">Argentina (+54)</option>
+                                              <option data-countryCode="AM" value="374">Armenia (+374)</option>
+                                              <option data-countryCode="AW" value="297">Aruba (+297)</option>
+                                              <option data-countryCode="AU" value="61">Australia (+61)</option>
+                                              <option data-countryCode="AT" value="43">Austria (+43)</option>
+                                              <option data-countryCode="AZ" value="994">Azerbaijan (+994)</option>
+                                              <option data-countryCode="BS" value="1242">Bahamas (+1242)</option>
+                                              <option data-countryCode="BH" value="973">Bahrain (+973)</option>
+                                              <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
+                                              <option data-countryCode="BB" value="1246">Barbados (+1246)</option>
+                                              <option data-countryCode="BY" value="375">Belarus (+375)</option>
+                                              <option data-countryCode="BE" value="32">Belgium (+32)</option>
+                                              <option data-countryCode="BZ" value="501">Belize (+501)</option>
+                                              <option data-countryCode="BJ" value="229">Benin (+229)</option>
+                                              <option data-countryCode="BM" value="1441">Bermuda (+1441)</option>
+                                              <option data-countryCode="BT" value="975">Bhutan (+975)</option>
+                                              <option data-countryCode="BO" value="591">Bolivia (+591)</option>
+                                              <option data-countryCode="BA" value="387">Bosnia Herzegovina (+387)</option>
+                                              <option data-countryCode="BW" value="267">Botswana (+267)</option>
+                                              <option data-countryCode="BR" value="55">Brazil (+55)</option>
+                                              <option data-countryCode="BN" value="673">Brunei (+673)</option>
+                                              <option data-countryCode="BG" value="359">Bulgaria (+359)</option>
+                                              <option data-countryCode="BF" value="226">Burkina Faso (+226)</option>
+                                              <option data-countryCode="BI" value="257">Burundi (+257)</option>
+                                              <option data-countryCode="KH" value="855">Cambodia (+855)</option>
+                                              <option data-countryCode="CM" value="237">Cameroon (+237)</option>
+                                              <option data-countryCode="CA" value="1">Canada (+1)</option>
+                                              <option data-countryCode="CV" value="238">Cape Verde Islands (+238)</option>
+                                              <option data-countryCode="KY" value="1345">Cayman Islands (+1345)</option>
+                                              <option data-countryCode="CF" value="236">Central African Republic (+236)</option>
+                                              <option data-countryCode="CL" value="56">Chile (+56)</option>
+                                              <option data-countryCode="CN" value="86">China (+86)</option>
+                                              <option data-countryCode="CO" value="57">Colombia (+57)</option>
+                                              <option data-countryCode="KM" value="269">Comoros (+269)</option>
+                                              <option data-countryCode="CG" value="242">Congo (+242)</option>
+                                              <option data-countryCode="CK" value="682">Cook Islands (+682)</option>
+                                              <option data-countryCode="CR" value="506">Costa Rica (+506)</option>
+                                              <option data-countryCode="HR" value="385">Croatia (+385)</option>
+                                              <option data-countryCode="CU" value="53">Cuba (+53)</option>
+                                              <option data-countryCode="CY" value="90392">Cyprus North (+90392)</option>
+                                              <option data-countryCode="CY" value="357">Cyprus South (+357)</option>
+                                              <option data-countryCode="CZ" value="42">Czech Republic (+42)</option>
+                                              <option data-countryCode="DK" value="45">Denmark (+45)</option>
+                                              <option data-countryCode="DJ" value="253">Djibouti (+253)</option>
+                                              <option data-countryCode="DM" value="1809">Dominica (+1809)</option>
+                                              <option data-countryCode="DO" value="1809">Dominican Republic (+1809)</option>
+                                              <option data-countryCode="EC" value="593">Ecuador (+593)</option>
+                                              <option data-countryCode="EG" value="20">Egypt (+20)</option>
+                                              <option data-countryCode="SV" value="503">El Salvador (+503)</option>
+                                              <option data-countryCode="GQ" value="240">Equatorial Guinea (+240)</option>
+                                              <option data-countryCode="ER" value="291">Eritrea (+291)</option>
+                                              <option data-countryCode="EE" value="372">Estonia (+372)</option>
+                                              <option data-countryCode="ET" value="251">Ethiopia (+251)</option>
+                                              <option data-countryCode="FK" value="500">Falkland Islands (+500)</option>
+                                              <option data-countryCode="FO" value="298">Faroe Islands (+298)</option>
+                                              <option data-countryCode="FJ" value="679">Fiji (+679)</option>
+                                              <option data-countryCode="FI" value="358">Finland (+358)</option>
+                                              <option data-countryCode="FR" value="33">France (+33)</option>
+                                              <option data-countryCode="GF" value="594">French Guiana (+594)</option>
+                                              <option data-countryCode="PF" value="689">French Polynesia (+689)</option>
+                                              <option data-countryCode="GA" value="241">Gabon (+241)</option>
+                                              <option data-countryCode="GM" value="220">Gambia (+220)</option>
+                                              <option data-countryCode="GE" value="7880">Georgia (+7880)</option>
+                                              <option data-countryCode="DE" value="49">Germany (+49)</option>
+                                              <option data-countryCode="GH" value="233">Ghana (+233)</option>
+                                              <option data-countryCode="GI" value="350">Gibraltar (+350)</option>
+                                              <option data-countryCode="GR" value="30">Greece (+30)</option>
+                                              <option data-countryCode="GL" value="299">Greenland (+299)</option>
+                                              <option data-countryCode="GD" value="1473">Grenada (+1473)</option>
+                                              <option data-countryCode="GP" value="590">Guadeloupe (+590)</option>
+                                              <option data-countryCode="GU" value="671">Guam (+671)</option>
+                                              <option data-countryCode="GT" value="502">Guatemala (+502)</option>
+                                              <option data-countryCode="GN" value="224">Guinea (+224)</option>
+                                              <option data-countryCode="GW" value="245">Guinea - Bissau (+245)</option>
+                                              <option data-countryCode="GY" value="592">Guyana (+592)</option>
+                                              <option data-countryCode="HT" value="509">Haiti (+509)</option>
+                                              <option data-countryCode="HN" value="504">Honduras (+504)</option>
+                                              <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
+                                              <option data-countryCode="HU" value="36">Hungary (+36)</option>
+                                              <option data-countryCode="IS" value="354">Iceland (+354)</option>
+                                              <option data-countryCode="IN" value="91">India (+91)</option>
+                                              <option data-countryCode="ID" value="62">Indonesia (+62)</option>
+                                              <option data-countryCode="IR" value="98">Iran (+98)</option>
+                                              <option data-countryCode="IQ" value="964">Iraq (+964)</option>
+                                              <option data-countryCode="IE" value="353">Ireland (+353)</option>
+                                              <option data-countryCode="IL" value="972">Israel (+972)</option>
+                                              <option data-countryCode="IT" value="39">Italy (+39)</option>
+                                              <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
+                                              <option data-countryCode="JP" value="81">Japan (+81)</option>
+                                              <option data-countryCode="JO" value="962">Jordan (+962)</option>
+                                              <option data-countryCode="KZ" value="7">Kazakhstan (+7)</option>
+                                              <option data-countryCode="KE" value="254">Kenya (+254)</option>
+                                              <option data-countryCode="KI" value="686">Kiribati (+686)</option>
+                                              <option data-countryCode="KP" value="850">Korea North (+850)</option>
+                                              <option data-countryCode="KR" value="82">Korea South (+82)</option>
+                                              <option data-countryCode="KW" value="965">Kuwait (+965)</option>
+                                              <option data-countryCode="KG" value="996">Kyrgyzstan (+996)</option>
+                                              <option data-countryCode="LA" value="856">Laos (+856)</option>
+                                              <option data-countryCode="LV" value="371">Latvia (+371)</option>
+                                              <option data-countryCode="LB" value="961">Lebanon (+961)</option>
+                                              <option data-countryCode="LS" value="266">Lesotho (+266)</option>
+                                              <option data-countryCode="LR" value="231">Liberia (+231)</option>
+                                              <option data-countryCode="LY" value="218">Libya (+218)</option>
+                                              <option data-countryCode="LI" value="417">Liechtenstein (+417)</option>
+                                              <option data-countryCode="LT" value="370">Lithuania (+370)</option>
+                                              <option data-countryCode="LU" value="352">Luxembourg (+352)</option>
+                                              <option data-countryCode="MO" value="853">Macao (+853)</option>
+                                              <option data-countryCode="MK" value="389">Macedonia (+389)</option>
+                                              <option data-countryCode="MG" value="261">Madagascar (+261)</option>
+                                              <option data-countryCode="MW" value="265">Malawi (+265)</option>
+                                              <option data-countryCode="MY" value="60">Malaysia (+60)</option>
+                                              <option data-countryCode="MV" value="960">Maldives (+960)</option>
+                                              <option data-countryCode="ML" value="223">Mali (+223)</option>
+                                              <option data-countryCode="MT" value="356">Malta (+356)</option>
+                                              <option data-countryCode="MH" value="692">Marshall Islands (+692)</option>
+                                              <option data-countryCode="MQ" value="596">Martinique (+596)</option>
+                                              <option data-countryCode="MR" value="222">Mauritania (+222)</option>
+                                              <option data-countryCode="YT" value="269">Mayotte (+269)</option>
+                                              <option data-countryCode="MX" value="52">Mexico (+52)</option>
+                                              <option data-countryCode="FM" value="691">Micronesia (+691)</option>
+                                              <option data-countryCode="MD" value="373">Moldova (+373)</option>
+                                              <option data-countryCode="MC" value="377">Monaco (+377)</option>
+                                              <option data-countryCode="MN" value="976">Mongolia (+976)</option>
+                                              <option data-countryCode="MS" value="1664">Montserrat (+1664)</option>
+                                              <option data-countryCode="MA" value="212">Morocco (+212)</option>
+                                              <option data-countryCode="MZ" value="258">Mozambique (+258)</option>
+                                              <option data-countryCode="MN" value="95">Myanmar (+95)</option>
+                                              <option data-countryCode="NA" value="264">Namibia (+264)</option>
+                                              <option data-countryCode="NR" value="674">Nauru (+674)</option>
+                                              <option data-countryCode="NP" value="977">Nepal (+977)</option>
+                                              <option data-countryCode="NL" value="31">Netherlands (+31)</option>
+                                              <option data-countryCode="NC" value="687">New Caledonia (+687)</option>
+                                              <option data-countryCode="NZ" value="64">New Zealand (+64)</option>
+                                              <option data-countryCode="NI" value="505">Nicaragua (+505)</option>
+                                              <option data-countryCode="NE" value="227">Niger (+227)</option>
+                                              <option data-countryCode="NG" value="234">Nigeria (+234)</option>
+                                              <option data-countryCode="NU" value="683">Niue (+683)</option>
+                                              <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option>
+                                              <option data-countryCode="NP" value="670">Northern Marianas (+670)</option>
+                                              <option data-countryCode="NO" value="47">Norway (+47)</option>
+                                              <option data-countryCode="OM" value="968">Oman (+968)</option>
+                                              <option data-countryCode="PW" value="680">Palau (+680)</option>
+                                              <option data-countryCode="PA" value="507">Panama (+507)</option>
+                                              <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option>
+                                              <option data-countryCode="PY" value="595">Paraguay (+595)</option>
+                                              <option data-countryCode="PE" value="51">Peru (+51)</option>
+                                              <option data-countryCode="PH" value="63">Philippines (+63)</option>
+                                              <option data-countryCode="PL" value="48">Poland (+48)</option>
+                                              <option data-countryCode="PT" value="351">Portugal (+351)</option>
+                                              <option data-countryCode="PR" value="1787">Puerto Rico (+1787)</option>
+                                              <option data-countryCode="QA" value="974">Qatar (+974)</option>
+                                              <option data-countryCode="RE" value="262">Reunion (+262)</option>
+                                              <option data-countryCode="RO" value="40">Romania (+40)</option>
+                                              <option data-countryCode="RU" value="7">Russia (+7)</option>
+                                              <option data-countryCode="RW" value="250">Rwanda (+250)</option>
+                                              <option data-countryCode="SM" value="378">San Marino (+378)</option>
+                                              <option data-countryCode="ST" value="239">Sao Tome &amp; Principe (+239)</option>
+                                              <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
+                                              <option data-countryCode="SN" value="221">Senegal (+221)</option>
+                                              <option data-countryCode="CS" value="381">Serbia (+381)</option>
+                                              <option data-countryCode="SC" value="248">Seychelles (+248)</option>
+                                              <option data-countryCode="SL" value="232">Sierra Leone (+232)</option>
+                                              <option data-countryCode="SG" value="65">Singapore (+65)</option>
+                                              <option data-countryCode="SK" value="421">Slovak Republic (+421)</option>
+                                              <option data-countryCode="SI" value="386">Slovenia (+386)</option>
+                                              <option data-countryCode="SB" value="677">Solomon Islands (+677)</option>
+                                              <option data-countryCode="SO" value="252">Somalia (+252)</option>
+                                              <option data-countryCode="ZA" value="27">South Africa (+27)</option>
+                                              <option data-countryCode="ES" value="34">Spain (+34)</option>
+                                              <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
+                                              <option data-countryCode="SH" value="290">St. Helena (+290)</option>
+                                              <option data-countryCode="KN" value="1869">St. Kitts (+1869)</option>
+                                              <option data-countryCode="SC" value="1758">St. Lucia (+1758)</option>
+                                              <option data-countryCode="SD" value="249">Sudan (+249)</option>
+                                              <option data-countryCode="SR" value="597">Suriname (+597)</option>
+                                              <option data-countryCode="SZ" value="268">Swaziland (+268)</option>
+                                              <option data-countryCode="SE" value="46">Sweden (+46)</option>
+                                              <option data-countryCode="CH" value="41">Switzerland (+41)</option>
+                                              <option data-countryCode="SI" value="963">Syria (+963)</option>
+                                              <option data-countryCode="TW" value="886">Taiwan (+886)</option>
+                                              <option data-countryCode="TJ" value="7">Tajikstan (+7)</option>
+                                              <option data-countryCode="TH" value="66">Thailand (+66)</option>
+                                              <option data-countryCode="TG" value="228">Togo (+228)</option>
+                                              <option data-countryCode="TO" value="676">Tonga (+676)</option>
+                                              <option data-countryCode="TT" value="1868">Trinidad &amp; Tobago (+1868)</option>
+                                              <option data-countryCode="TN" value="216">Tunisia (+216)</option>
+                                              <option data-countryCode="TR" value="90">Turkey (+90)</option>
+                                              <option data-countryCode="TM" value="7">Turkmenistan (+7)</option>
+                                              <option data-countryCode="TM" value="993">Turkmenistan (+993)</option>
+                                              <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option>
+                                              <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
+                                              <option data-countryCode="UG" value="256">Uganda (+256)</option>
+                                              <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                                              <option data-countryCode="UA" value="380">Ukraine (+380)</option>
+                                              <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
+                                              <option data-countryCode="UY" value="598">Uruguay (+598)</option>
+                                              <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                                              <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
+                                              <option data-countryCode="VU" value="678">Vanuatu (+678)</option>
+                                              <option data-countryCode="VA" value="379">Vatican City (+379)</option>
+                                              <option data-countryCode="VE" value="58">Venezuela (+58)</option>
+                                              <option data-countryCode="VN" value="84">Vietnam (+84)</option>
+                                              <option data-countryCode="VG" value="84">Virgin Islands - British (+1284)</option>
+                                              <option data-countryCode="VI" value="84">Virgin Islands - US (+1340)</option>
+                                              <option data-countryCode="WF" value="681">Wallis &amp; Futuna (+681)</option>
+                                              <option data-countryCode="YE" value="969">Yemen (North)(+969)</option>
+                                              <option data-countryCode="YE" value="967">Yemen (South)(+967)</option>
+                                              <option data-countryCode="ZM" value="260">Zambia (+260)</option>
+                                              <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
+                                           </optgroup>
+                                        </select>
+                                        </div>
+                                        </div>
+                                    
+                                     <div class="col"> 
+                                            
+                                               <div class="col col-sm-6">
+                                            <label for="phoneNumber" class="">
+                                              <h6>phone number</h6>
+                                              </label><span class="required">*</span>
+                                           </label>
+                                     <input type="phoneNumber" id="user_phone_num" name="user_phone_num" placeholder="Phone number"
+                                                 class="form-control" required>
+                                   </div>
+                                     
+                                  </div>          
+                                  </div>
+                                  </div>
+
+                                                                    <hr class="seperator">
+                                  <div class="form-group w-60" class="status">
+                                     <label for="status">
+                                        <h6>Marital Status</h6>
+                                     </label><span class="required">*</span>
+                                     <select class="form-control" id="user_marital_status"
+                                        name="user_marital_status" required>
+                                        <option value="" selected></option>
+                                        <option>Engaged</option>
+                                        <option>Married</option>
+                                        <option>In a De Facto Relationship </option>
+                                        <option>Interdependent Relationship</option>
+                                        <option>Seperated</option>
+                                        <option>Divorced</option>
+                                        <option>Widowed</option>
+                                        <option>Never Married</option>
+                                     </select>
+                                  </div>
+                                                                    <hr class="seperator">
+                                  <div class="form-group w-60">
+                                     <label for="email" class="">
+                                        <h6>Email</h6>
+                                     </label><span class="required">*</span>
+                                     <div class="email">
+                                        <input type="email" id="user_email" placeholder="abc@email.com"
+                                           class="form-control" name="user_email" required>
+                                     </div>
+                                  </div>
+                                  <hr class="seperator">
+                                  <div class="form-group w-60" class="country">
+                                     <label for="select-country">
+                                        <h6>Country of passport</h6>
+                                     </label><span class="required">*</span>
+                                     <select id="user_country" name="user_country"
+                                        class="demo-default form-control" required
+                                        placeholder="Confirm the country" data-parsley-errors-container="#errors">
+                                        <option value="" selected>Selcect a country</option>
+                                        <option value="AF">Afghanistan</option>
+                                        <option value="AX">&Aring;land Islands</option>
+                                        <option value="AL">Albania</option>
+                                        <option value="DZ">Algeria</option>
+                                        <option value="AS">American Samoa</option>
+                                        <option value="AD">Andorra</option>
+                                        <option value="AO">Angola</option>
+                                        <option value="AI">Anguilla</option>
+                                        <option value="AQ">Antarctica</option>
+                                        <option value="AG">Antigua and Barbuda</option>
+                                        <option value="AR">Argentina</option>
+                                        <option value="AM">Armenia</option>
+                                        <option value="AW">Aruba</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="AT">Austria</option>
+                                        <option value="AZ">Azerbaijan</option>
+                                        <option value="BS">Bahamas</option>
+                                        <option value="BH">Bahrain</option>
+                                        <option value="BD">Bangladesh</option>
+                                        <option value="BB">Barbados</option>
+                                        <option value="BY">Belarus</option>
+                                        <option value="BE">Belgium</option>
+                                        <option value="BZ">Belize</option>
+                                        <option value="BJ">Benin</option>
+                                        <option value="BM">Bermuda</option>
+                                        <option value="BT">Bhutan</option>
+                                        <option value="BO">Bolivia, Plurinational State of</option>
+                                        <option value="BA">Bosnia and Herzegovina</option>
+                                        <option value="BW">Botswana</option>
+                                        <option value="BV">Bouvet Island</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="IO">British Indian Ocean Territory</option>
+                                        <option value="BN">Brunei Darussalam</option>
+                                        <option value="BG">Bulgaria</option>
+                                        <option value="BF">Burkina Faso</option>
+                                        <option value="BI">Burundi</option>
+                                        <option value="KH">Cambodia</option>
+                                        <option value="CM">Cameroon</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="CV">Cape Verde</option>
+                                        <option value="KY">Cayman Islands</option>
+                                        <option value="CF">Central African Republic</option>
+                                        <option value="TD">Chad</option>
+                                        <option value="CL">Chile</option>
+                                        <option value="CN">China</option>
+                                        <option value="CX">Christmas Island</option>
+                                        <option value="CC">Cocos (Keeling) Islands</option>
+                                        <option value="CO">Colombia</option>
+                                        <option value="KM">Comoros</option>
+                                        <option value="CG">Congo</option>
+                                        <option value="CD">Congo, the Democratic Republic of the</option>
+                                        <option value="CK">Cook Islands</option>
+                                        <option value="CR">Costa Rica</option>
+                                        <option value="CI">C&ocirc;te d'Ivoire</option>
+                                        <option value="HR">Croatia</option>
+                                        <option value="CU">Cuba</option>
+                                        <option value="CY">Cyprus</option>
+                                        <option value="CZ">Czech Republic</option>
+                                        <option value="DK">Denmark</option>
+                                        <option value="DJ">Djibouti</option>
+                                        <option value="DM">Dominica</option>
+                                        <option value="DO">Dominican Republic</option>
+                                        <option value="EC">Ecuador</option>
+                                        <option value="EG">Egypt</option>
+                                        <option value="SV">El Salvador</option>
+                                        <option value="GQ">Equatorial Guinea</option>
+                                        <option value="ER">Eritrea</option>
+                                        <option value="EE">Estonia</option>
+                                        <option value="ET">Ethiopia</option>
+                                        <option value="FK">Falkland Islands (Malvinas)</option>
+                                        <option value="FO">Faroe Islands</option>
+                                        <option value="FJ">Fiji</option>
+                                        <option value="FI">Finland</option>
+                                        <option value="FR">France</option>
+                                        <option value="GF">French Guiana</option>
+                                        <option value="PF">French Polynesia</option>
+                                        <option value="TF">French Southern Territories</option>
+                                        <option value="GA">Gabon</option>
+                                        <option value="GM">Gambia</option>
+                                        <option value="GE">Georgia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="GH">Ghana</option>
+                                        <option value="GI">Gibraltar</option>
+                                        <option value="GR">Greece</option>
+                                        <option value="GL">Greenland</option>
+                                        <option value="GD">Grenada</option>
+                                        <option value="GP">Guadeloupe</option>
+                                        <option value="GU">Guam</option>
+                                        <option value="GT">Guatemala</option>
+                                        <option value="GG">Guernsey</option>
+                                        <option value="GN">Guinea</option>
+                                        <option value="GW">Guinea-Bissau</option>
+                                        <option value="GY">Guyana</option>
+                                        <option value="HT">Haiti</option>
+                                        <option value="HM">Heard Island and McDonald Islands</option>
+                                        <option value="VA">Holy See (Vatican City State)</option>
+                                        <option value="HN">Honduras</option>
+                                        <option value="HK">Hong Kong</option>
+                                        <option value="HU">Hungary</option>
+                                        <option value="IS">Iceland</option>
+                                        <option value="IN">India</option>
+                                        <option value="ID">Indonesia</option>
+                                        <option value="IR">Iran, Islamic Republic of</option>
+                                        <option value="IQ">Iraq</option>
+                                        <option value="IE">Ireland</option>
+                                        <option value="IM">Isle of Man</option>
+                                        <option value="IL">Israel</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JM">Jamaica</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="JE">Jersey</option>
+                                        <option value="JO">Jordan</option>
+                                        <option value="KZ">Kazakhstan</option>
+                                        <option value="KE">Kenya</option>
+                                        <option value="KI">Kiribati</option>
+                                        <option value="KP">Korea, Democratic People's Republic of</option>
+                                        <option value="KR">Korea, Republic of</option>
+                                        <option value="KW">Kuwait</option>
+                                        <option value="KG">Kyrgyzstan</option>
+                                        <option value="LA">Lao People's Democratic Republic</option>
+                                        <option value="LV">Latvia</option>
+                                        <option value="LB">Lebanon</option>
+                                        <option value="LS">Lesotho</option>
+                                        <option value="LR">Liberia</option>
+                                        <option value="LY">Libyan Arab Jamahiriya</option>
+                                        <option value="LI">Liechtenstein</option>
+                                        <option value="LT">Lithuania</option>
+                                        <option value="LU">Luxembourg</option>
+                                        <option value="MO">Macao</option>
+                                        <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                        <option value="MG">Madagascar</option>
+                                        <option value="MW">Malawi</option>
+                                        <option value="MY">Malaysia</option>
+                                        <option value="MV">Maldives</option>
+                                        <option value="ML">Mali</option>
+                                        <option value="MT">Malta</option>
+                                        <option value="MH">Marshall Islands</option>
+                                        <option value="MQ">Martinique</option>
+                                        <option value="MR">Mauritania</option>
+                                        <option value="MU">Mauritius</option>
+                                        <option value="YT">Mayotte</option>
+                                        <option value="MX">Mexico</option>
+                                        <option value="FM">Micronesia, Federated States of</option>
+                                        <option value="MD">Moldova, Republic of</option>
+                                        <option value="MC">Monaco</option>
+                                        <option value="MN">Mongolia</option>
+                                        <option value="ME">Montenegro</option>
+                                        <option value="MS">Montserrat</option>
+                                        <option value="MA">Morocco</option>
+                                        <option value="MZ">Mozambique</option>
+                                        <option value="MM">Myanmar</option>
+                                        <option value="NA">Namibia</option>
+                                        <option value="NR">Nauru</option>
+                                        <option value="NP">Nepal</option>
+                                        <option value="NL">Netherlands</option>
+                                        <option value="AN">Netherlands Antilles</option>
+                                        <option value="NC">New Caledonia</option>
+                                        <option value="NZ">New Zealand</option>
+                                        <option value="NI">Nicaragua</option>
+                                        <option value="NE">Niger</option>
+                                        <option value="NG">Nigeria</option>
+                                        <option value="NU">Niue</option>
+                                        <option value="NF">Norfolk Island</option>
+                                        <option value="MP">Northern Mariana Islands</option>
+                                        <option value="NO">Norway</option>
+                                        <option value="OM">Oman</option>
+                                        <option value="PK">Pakistan</option>
+                                        <option value="PW">Palau</option>
+                                        <option value="PS">Palestinian Territory, Occupied</option>
+                                        <option value="PA">Panama</option>
+                                        <option value="PG">Papua New Guinea</option>
+                                        <option value="PY">Paraguay</option>
+                                        <option value="PE">Peru</option>
+                                        <option value="PH">Philippines</option>
+                                        <option value="PN">Pitcairn</option>
+                                        <option value="PL">Poland</option>
+                                        <option value="PT">Portugal</option>
+                                        <option value="PR">Puerto Rico</option>
+                                        <option value="QA">Qatar</option>
+                                        <option value="RE">R&eacute;union</option>
+                                        <option value="RO">Romania</option>
+                                        <option value="RU">Russian Federation</option>
+                                        <option value="RW">Rwanda</option>
+                                        <option value="BL">Saint Barth&eacute;lemy</option>
+                                        <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                        <option value="KN">Saint Kitts and Nevis</option>
+                                        <option value="LC">Saint Lucia</option>
+                                        <option value="MF">Saint Martin (French part)</option>
+                                        <option value="PM">Saint Pierre and Miquelon</option>
+                                        <option value="VC">Saint Vincent and the Grenadines</option>
+                                        <option value="WS">Samoa</option>
+                                        <option value="SM">San Marino</option>
+                                        <option value="ST">Sao Tome and Principe</option>
+                                        <option value="SA">Saudi Arabia</option>
+                                        <option value="SN">Senegal</option>
+                                        <option value="RS">Serbia</option>
+                                        <option value="SC">Seychelles</option>
+                                        <option value="SL">Sierra Leone</option>
+                                        <option value="SG">Singapore</option>
+                                        <option value="SK">Slovakia</option>
+                                        <option value="SI">Slovenia</option>
+                                        <option value="SB">Solomon Islands</option>
+                                        <option value="SO">Somalia</option>
+                                        <option value="ZA">South Africa</option>
+                                        <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                        <option value="ES">Spain</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="SD">Sudan</option>
+                                        <option value="SR">Suriname</option>
+                                        <option value="SJ">Svalbard and Jan Mayen</option>
+                                        <option value="SZ">Swaziland</option>
+                                        <option value="SE">Sweden</option>
+                                        <option value="CH">Switzerland</option>
+                                        <option value="SY">Syrian Arab Republic</option>
+                                        <option value="TW">Taiwan, Province of China</option>
+                                        <option value="TJ">Tajikistan</option>
+                                        <option value="TZ">Tanzania, United Republic of</option>
+                                        <option value="TH">Thailand</option>
+                                        <option value="TL">Timor-Leste</option>
+                                        <option value="TG">Togo</option>
+                                        <option value="TK">Tokelau</option>
+                                        <option value="TO">Tonga</option>
+                                        <option value="TT">Trinidad and Tobago</option>
+                                        <option value="TN">Tunisia</option>
+                                        <option value="TR">Turkey</option>
+                                        <option value="TM">Turkmenistan</option>
+                                        <option value="TC">Turks and Caicos Islands</option>
+                                        <option value="TV">Tuvalu</option>
+                                        <option value="UG">Uganda</option>
+                                        <option value="UA">Ukraine</option>
+                                        <option value="AE">United Arab Emirates</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="US">United States</option>
+                                        <option value="UM">United States Minor Outlying Islands</option>
+                                        <option value="UY">Uruguay</option>
+                                        <option value="UZ">Uzbekistan</option>
+                                        <option value="VU">Vanuatu</option>
+                                        <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                        <option value="VN">Viet Nam</option>
+                                        <option value="VG">Virgin Islands, British</option>
+                                        <option value="VI">Virgin Islands, U.S.</option>
+                                        <option value="WF">Wallis and Futuna</option>
+                                        <option value="EH">Western Sahara</option>
+                                        <option value="YE">Yemen</option>
+                                        <option value="ZM">Zambia</option>
+                                        <option value="ZW">Zimbabwe</option>
+                                     </select>
+                                  </div>
+                                                                    <hr class="seperator">
+                                  <div class="form-group w-60">
+                                     <label for="passNumber" class="passNumber">
+                                        <h6>Passport number</h6>
+                                     </label><span class="required">*</span>
+                                     <div class="passNumber">
+                                        <input type="passNumber" id="user_passport_number"
+                                           name="user_passport_number" placeholder="0987654321"
+                                           class="form-control" required>
+                                     </div>
+                                  </div>
+
+                                  <hr class="seperator">
+                                  <label for="LivingAus" class="">
+                                     <h6>Currently living in Australia?</h6>
+                                  </label><span class="required">*</span> <br>
+                                  <div class="LivingAus" id="LivingAus">
+                                     <div>
+                                        <input name="user_livingaus" id="user_livingaus" type="radio"
+                                           data-toggle="collapse" data-target="#collapseOne" value="Yes" />
+                                        Yes</br>
+                                        <input name="user_livingaus" id="user_livingaus" type="radio"
+                                           data-toggle="collapse" data-target="#partner" value="No" checked>
+                                        No</br>
+                                        <div id="collapseOne" class="panel-collapse collapse">
+                                           <div class="panel-body">
+
+                                              <div class="forLivingAus details form-group w-60">
+
+                                                 <label for="Date">
+                                                    <h6>Last arrived in Australia?</h6>
+                                                 </label><span class="required">*</span>
+                                                 <div class="Arrivaldate">
+                                                    <input type="date" id="user_arrivaldate"
+                                                       name="user_arrivaldate" class="form-control" required>
+                                                 </div>
+
+                                                 <br>
+
+                                                 <hr class="seperator">
+
+                                                 <label for="departDate">
+                                                    <h6>Required to depart Australia? (Leave blank
+                                                       if not applicable)</h6>
+                                                 </label>
+                                                 <div class="departdate">
+                                                    <input type="date" id="user_departdate" name="user_departdate"
+                                                       class="form-control">
+                                                 </div>
+
+                                                 <hr class="seperator">
+                                                 <label for="Visa" class="visa">
+                                                    <h6>Hold an Australian Visa?</h6>
+                                                 </label><span class="required">*</span>
+                                                 <div>
+                                                    <div>
+                                                       <input name="user_ausvisa" type="radio"
+                                                          data-toggle="collapse" data-target="#collapsetwo"
+                                                          value="Yes" /> Yes</br>
+                                                       <input name="user_ausvisa" type="radio"
+                                                          data-toggle="collapse" data-target="#partner" value="No"
+                                                          checked> No</br>
+                                                       <div id="collapsetwo" class="panel-collapse collapse">
+                                                          <div class="panel-body">
+                                                             <hr class="seperator">
+                                                             <div class="form-group w-60">
+                                                                <label for="visa">
+                                                                   <h6>Current visa</h6>
+                                                                </label><span class="required">*</span>
+                                                                <select class="form-control" id="user_visatype"
+                                                                   name="user_visatype" required>
+                                                                   <option value="" salected></option>
+                                                                   <option value="010 - Bridging (Class A)">010 -
+                                                                      Bridging (Class A)</option>
+                                                                   <option value="020 - Bridging (Class B)">020 -
+                                                                      Bridging (Class B)</option>
+                                                                   <option value="030 - Bridging (Class C)">030 -
+                                                                      Bridging (Class C)</option>
+                                                                   <option
+                                                                      value="040 - Bridging (Prospective Applicant)">
+                                                                      040 - Bridging (Prospective
+                                                                      Applicant)</option>
+                                                                   <option value="041 - Bridging (Non-Applicant)">
+                                                                      041 - Bridging (Non-Applicant)
+                                                                   </option>
+                                                                   <option value="050 - Bridging (General)">050 -
+                                                                      Bridging (General)
+                                                                   </option>
+                                                                   <option
+                                                                      value="051 - Bridging (Protection Visa Applicant)">
+                                                                      051 - Bridging (Protection
+                                                                      Visa Applicant)</option>
+                                                                   <option value="060 - Bridging F">
+                                                                      060 - Bridging F</option>
+                                                                   <option
+                                                                      value="070 - Bridging (Removal Pending)">070
+                                                                      - Bridging (Removal
+                                                                      Pending)</option>
+                                                                   <option value="100 - Partner">100
+                                                                      - Partner</option>
+                                                                   <option value="100 - Spouse">100
+                                                                      - Spouse</option>
+                                                                   <option value="101 - Child">101 -
+                                                                      Child</option>
+                                                                   <option value="102 - Adoption">
+                                                                      102 - Adoption</option>
+                                                                   <option value="103 - Parent">103
+                                                                      - Parent</option>
+                                                                   <option value="104 - Preferential Family">104 -
+                                                                      Preferential Family
+                                                                   </option>
+                                                                   <option
+                                                                      value="105 - Skilled - Australian-linked">105
+                                                                      - Skilled -
+                                                                      Australian-linked</option>
+                                                                   <option value="106 - Regional-linked">106 -
+                                                                      Regional-linked</option>
+                                                                   <option value="110 - Interdependency">110 -
+                                                                      Interdependency</option>
+                                                                   <option value="114 - Aged Dependent Relative">
+                                                                      114 - Aged Dependent Relative
+                                                                   </option>
+                                                                   <option value="115 - Remaining Relative">115 -
+                                                                      Remaining Relative
+                                                                   </option>
+                                                                   <option value="116 - Carer">116 -
+                                                                      Carer</option>
+                                                                   <option value="117 - Orphan Relative">117 -
+                                                                      Orphan Relative</option>
+                                                                   <option value="118 - Designated Parent">118 -
+                                                                      Designated Parent
+                                                                   </option>
+                                                                   <option
+                                                                      value="119 - Regional Sponsored Migration Scheme">
+                                                                      119 - Regional Sponsored
+                                                                      Migration Scheme</option>
+                                                                   <option
+                                                                      value="119 - Regional Sponsored Migration Scheme Nomination">
+                                                                      119 - Regional Sponsored
+                                                                      Migration Scheme Nomination</option>
+                                                                   <option value="120 - Labour Agreement">120 -
+                                                                      Labour Agreement
+                                                                   </option>
+                                                                   <option value="121 - Employer Nomination">121 -
+                                                                      Employer Nomination
+                                                                   </option>
+                                                                   <option value="124 - Distinguished Talent">124 -
+                                                                      Distinguished Talent
+                                                                   </option>
+                                                                   <option
+                                                                      value="125 - Distinguished Talent and Special Service">
+                                                                      125 - Distinguished Talent and
+                                                                      Special Service</option>
+                                                                   <option value="126 - Independent">
+                                                                      126 - Independent</option>
+                                                                   <option value="127 - Business Owner">127 -
+                                                                      Business Owner</option>
+                                                                   <option value="128 - Senior Executive">128 -
+                                                                      Senior Executive
+                                                                   </option>
+                                                                   <option
+                                                                      value="129 - State/Territory Sponsored Business Owner">
+                                                                      129 - State/Territory
+                                                                      Sponsored Business Owner</option>
+                                                                   <option
+                                                                      value="130 - State/Territory Sponsored Senior Executive">
+                                                                      130 - State/Territory
+                                                                      Sponsored Senior Executive</option>
+                                                                   <option value="132 - Business Talent">132 -
+                                                                      Business Talent</option>
+                                                                   <option value="134 - Skill Matching">134 - Skill
+                                                                      Matching</option>
+                                                                   <option
+                                                                      value="135 - State/Territory Nominated Independent">
+                                                                      135 - State/Territory
+                                                                      Nominated Independent</option>
+                                                                   <option value="136 - Skilled - Independent">136
+                                                                      - Skilled - Independent
+                                                                   </option>
+                                                                   <option
+                                                                      value="137 - Skilled - State/Territory Nominated Independent">
+                                                                      137 - Skilled -
+                                                                      State/Territory Nominated Independent
+                                                                   </option>
+                                                                   <option
+                                                                      value="138 - Skilled - Australian-sponsored">
+                                                                      138 - Skilled -
+                                                                      Australian-sponsored</option>
+                                                                   <option
+                                                                      value="139 - Skilled - Designated Area-sponsored">
+                                                                      139 - Skilled - Designated
+                                                                      Area-sponsored</option>
+                                                                   <option value="143 - Contributory Parent">143 -
+                                                                      Contributory Parent
+                                                                   </option>
+                                                                   <option
+                                                                      value="143 - Contributory Parent (Conversion from Subclass 173)">
+                                                                      143 - Contributory Parent
+                                                                      (Conversion from Subclass 173)</option>
+                                                                   <option value="150 - Former Citizen">150 -
+                                                                      Former Citizen</option>
+                                                                   <option value="151 - Former Resident">151 -
+                                                                      Former Resident</option>
+                                                                   <option value="152 - Family of NZ Citizen">152 -
+                                                                      Family of NZ Citizen
+                                                                   </option>
+                                                                   <option value="155 - Five Year Resident Return">
+                                                                      155 - Five Year Resident
+                                                                      Return</option>
+                                                                   <option value="156 - One Year Return">156 - One
+                                                                      Year Return</option>
+                                                                   <option
+                                                                      value="157 - Three Month Resident Return">157
+                                                                      - Three Month Resident
+                                                                      Return</option>
+                                                                   <option
+                                                                      value="159 - Provisional Resident Return">159
+                                                                      - Provisional Resident
+                                                                      Return</option>
+                                                                   <option
+                                                                      value="160 - Business Owner (Provisional)">
+                                                                      160 - Business Owner
+                                                                      (Provisional)</option>
+                                                                   <option
+                                                                      value="161 - Senior Executive (Provisional)">
+                                                                      161 - Senior Executive
+                                                                      (Provisional)</option>
+                                                                   <option value="162 - Investor (Provisional)">162
+                                                                      - Investor (Provisional)
+                                                                   </option>
+                                                                   <option
+                                                                      value="163 - State/Territory Sponsored Business Owner (Provisional)">
+                                                                      163 - State/Territory
+                                                                      Sponsored Business Owner (Provisional)
+                                                                   </option>
+                                                                   <option
+                                                                      value="164 - State/Territory Sponsored Senior Executive (Provisional)">
+                                                                      164 - State/Territory
+                                                                      Sponsored Senior Executive (Provisional)
+                                                                   </option>
+                                                                   <option
+                                                                      value="165 - State/Territory Sponsored Investor (Provisional)">
+                                                                      165 - State/Territory
+                                                                      Sponsored Investor (Provisional)</option>
+                                                                   <option
+                                                                      value="173 - Contributory Parent (Temporary)">
+                                                                      173 - Contributory Parent
+                                                                      (Temporary)</option>
+                                                                   <option value="175 - Skilled - Independent">175
+                                                                      - Skilled - Independent
+                                                                   </option>
+                                                                   <option value="176 - Skilled - Sponsored">176 -
+                                                                      Skilled - Sponsored
+                                                                   </option>
+                                                                   <option
+                                                                      value="186 - Employer Nomination Scheme">186
+                                                                      - Employer Nomination
+                                                                      Scheme</option>
+                                                                   <option
+                                                                      value="187 - Regional Sponsored Migration Scheme">
+                                                                      187 - Regional Sponsored
+                                                                      Migration Scheme</option>
+                                                                   <option
+                                                                      value="188 - Business Innovation and Investment (Provisional)">
+                                                                      188 - Business Innovation and
+                                                                      Investment (Provisional)</option>
+                                                                   <option value="189 - Skilled - Independent">189
+                                                                      - Skilled - Independent
+                                                                   </option>
+                                                                   <option value="190 - Skilled - Nominated">190 -
+                                                                      Skilled - Nominated
+                                                                   </option>
+                                                                   <option value="200 - Refugee">200
+                                                                      - Refugee</option>
+                                                                   <option
+                                                                      value="201 - In-country Special Humanitarian">
+                                                                      201 - In-country Special
+                                                                      Humanitarian</option>
+                                                                   <option
+                                                                      value="202 - Global Special Humanitarian">202
+                                                                      - Global Special
+                                                                      Humanitarian</option>
+                                                                   <option value="203 - Emergency Rescue">203 -
+                                                                      Emergency Rescue
+                                                                   </option>
+                                                                   <option value="204 - Woman at Risk">
+                                                                      204 - Woman at Risk</option>
+                                                                   <option value="205 - Camp Clearance">205 - Camp
+                                                                      Clearance</option>
+                                                                   <option value="208 - East Timorese in Portugal">
+                                                                      208 - East Timorese in
+                                                                      Portugal</option>
+                                                                   <option
+                                                                      value="209 - Citizens of Former Yugoslavia - Displaced Persons">
+                                                                      209 - Citizens of Former
+                                                                      Yugoslavia - Displaced Persons</option>
+                                                                   <option value="210 - Minorities of Former USSR">
+                                                                      210 - Minorities of Former
+                                                                      USSR</option>
+                                                                   <option value="211 - Burmese">211
+                                                                      - Burmese</option>
+                                                                   <option value="212 - Sudanese">
+                                                                      212 - Sudanese</option>
+                                                                   <option value="213 - Burmese in Thailand">213 -
+                                                                      Burmese in Thailand
+                                                                   </option>
+                                                                   <option value="214 - Cambodian">
+                                                                      214 - Cambodian</option>
+                                                                   <option value="300 - Prospective Marriage">300 -
+                                                                      Prospective Marriage
+                                                                   </option>
+                                                                   <option
+                                                                      value="302 - Emergency (Permanent Visa Applicant)">
+                                                                      302 - Emergency (Permanent
+                                                                      Visa Applicant)</option>
+                                                                   <option
+                                                                      value="303 - Emergency (Temporary Visa Applicant)">
+                                                                      303 - Emergency (Temporary
+                                                                      Visa Applicant)</option>
+                                                                   <option
+                                                                      value="305 - Interdependency (Temporary)">305
+                                                                      - Interdependency
+                                                                      (Temporary)</option>
+                                                                   <option value="309 - Partner (Provisional)">309
+                                                                      - Partner (Provisional)
+                                                                   </option>
+                                                                   <option value="309 - Spouse (Provisional)">309 -
+                                                                      Spouse (Provisional)
+                                                                   </option>
+                                                                   <option
+                                                                      value="310 - Interdependency (Provisional)">
+                                                                      310 - Interdependency
+                                                                      (Provisional)</option>
+                                                                   <option
+                                                                      value="400 - Temporary Work (Short Stay Activity)">
+                                                                      400 - Temporary Work (Short
+                                                                      Stay Activity)</option>
+                                                                   <option
+                                                                      value="400 - Temporary Work (Short Stay Activity) Visa">
+                                                                      400 - Temporary Work (Short
+                                                                      Stay Activity) Visa</option>
+                                                                   <option
+                                                                      value="400 - Temporary Work (Short Stay Specialist)">
+                                                                      400 - Temporary Work (Short
+                                                                      Stay Specialist)</option>
+                                                                   <option
+                                                                      value="401 - Temporary Work (Long Stay Activity)">
+                                                                      401 - Temporary Work (Long
+                                                                      Stay Activity)</option>
+                                                                   <option value="402 - Training and Research">402
+                                                                      - Training and Research
+                                                                   </option>
+                                                                   <option
+                                                                      value="403 - Temporary Work (International Relations)">
+                                                                      403 - Temporary Work
+                                                                      (International Relations)</option>
+                                                                   <option value="405 - Investor Retirement Visa">
+                                                                      405 - Investor Retirement Visa
+                                                                   </option>
+                                                                   <option value="406 - Government Agreement">406 -
+                                                                      Government Agreement
+                                                                   </option>
+                                                                   <option value="407 - Training">
+                                                                      407 - Training</option>
+                                                                   <option value="408 - Temporary Activity">408 -
+                                                                      Temporary Activity
+                                                                   </option>
+                                                                   <option value="410 - Retirement">
+                                                                      410 - Retirement</option>
+                                                                   <option value="411 - Exchange">
+                                                                      411 - Exchange</option>
+                                                                   <option value="412 - Independent Executive">412
+                                                                      - Independent Executive
+                                                                   </option>
+                                                                   <option value="413 - Executive">
+                                                                      413 - Executive</option>
+                                                                   <option value="414 - Specialist">
+                                                                      414 - Specialist</option>
+                                                                   <option value="415 - Foreign Government Agency">
+                                                                      415 - Foreign Government
+                                                                      Agency</option>
+                                                                   <option value="416 - Special Program">416 -
+                                                                      Special Program</option>
+                                                                   <option value="417 - Working Holiday">417 -
+                                                                      Working Holiday</option>
+                                                                   <option value="418 - Educational">
+                                                                      418 - Educational</option>
+                                                                   <option value="419 - Visiting Academic">419 -
+                                                                      Visiting Academic
+                                                                   </option>
+                                                                   <option value="420 - Entertainment">
+                                                                      420 - Entertainment</option>
+                                                                   <option
+                                                                      value="420 - Temporary Work (Entertainment)">
+                                                                      420 - Temporary Work
+                                                                      (Entertainment)</option>
+                                                                   <option value="421 - Sport">421 -
+                                                                      Sport</option>
+                                                                   <option value="422 - Medical Practitioner">422 -
+                                                                      Medical Practitioner
+                                                                   </option>
+                                                                   <option value="423 - Media and Film Staff">423 -
+                                                                      Media and Film Staff
+                                                                   </option>
+                                                                   <option value="424 - Public Lecturer">424 -
+                                                                      Public Lecturer</option>
+                                                                   <option value="425 - Family Relationship">425 -
+                                                                      Family Relationship
+                                                                   </option>
+                                                                   <option
+                                                                      value="426 - Domestic Worker (Temporary) - Diplomatic or Consular">
+                                                                      426 - Domestic Worker
+                                                                      (Temporary) - Diplomatic or Consular</option>
+                                                                   <option
+                                                                      value="427 - Domestic Worker (Temporary) - Executive">
+                                                                      427 - Domestic Worker
+                                                                      (Temporary) - Executive</option>
+                                                                   <option value="428 - Religious Worker">428 -
+                                                                      Religious Worker
+                                                                   </option>
+                                                                   <option value="430 - Supported Dependent">430 -
+                                                                      Supported Dependent
+                                                                   </option>
+                                                                   <option value="431 - Restricted Passport">431 -
+                                                                      Restricted Passport
+                                                                   </option>
+                                                                   <option value="432 - Expatriate (Temporary)">432
+                                                                      - Expatriate (Temporary)
+                                                                   </option>
+                                                                   <option value="437 - PRC (Temporary)">437 - PRC
+                                                                      (Temporary)</option>
+                                                                   <option value="442 - Occupational Trainee">442 -
+                                                                      Occupational Trainee
+                                                                   </option>
+                                                                   <option value="444 - Special Category">444 -
+                                                                      Special Category
+                                                                   </option>
+                                                                   <option value="445 - Dependent Child">445 -
+                                                                      Dependent Child</option>
+                                                                   <option value="446 - Confirmatory (Temporary)">
+                                                                      446 - Confirmatory (Temporary)
+                                                                   </option>
+                                                                   <option
+                                                                      value="447 - Secondary Movement Offshore Entry (Temporary)">
+                                                                      447 - Secondary Movement
+                                                                      Offshore Entry (Temporary)</option>
+                                                                   <option
+                                                                      value="448 - Kosovar Safe Haven (Temporary)">
+                                                                      448 - Kosovar Safe Haven
+                                                                      (Temporary)</option>
+                                                                   <option
+                                                                      value="449 - Humanitarian Stay (Temporary)">
+                                                                      449 - Humanitarian Stay
+                                                                      (Temporary)</option>
+                                                                   <option
+                                                                      value="450 - Resolution of Status - Family Member (Temporary)">
+                                                                      450 - Resolution of Status -
+                                                                      Family Member (Temporary)</option>
+                                                                   <option
+                                                                      value="451 - Secondary Movement Relocation (Temporary)">
+                                                                      451 - Secondary Movement
+                                                                      Relocation (Temporary)</option>
+                                                                   <option value="456 - Business (Short Stay)">456
+                                                                      - Business (Short Stay)
+                                                                   </option>
+                                                                   <option value="457 - Business (Long Stay)">457 -
+                                                                      Business (Long Stay)
+                                                                   </option>
+                                                                   <option
+                                                                      value="457 - Business (Long Stay) Sponsor">
+                                                                      457 - Business (Long Stay)
+                                                                      Sponsor</option>
+                                                                   <option value="457 - Temporary Work (Skilled)">
+                                                                      457 - Temporary Work (Skilled)
+                                                                   </option>
+                                                                   <option
+                                                                      value="457 - Temporary Work (Skilled) Visa - Sponsor">
+                                                                      457 - Temporary Work (Skilled)
+                                                                      Visa - Sponsor</option>
+                                                                   <option
+                                                                      value="459 - Sponsored Business Visitor (Short Stay)">
+                                                                      459 - Sponsored Business
+                                                                      Visitor (Short Stay)</option>
+                                                                   <option
+                                                                      value="461 - New Zealand Citizen Family Relationship (Temporary)">
+                                                                      461 - New Zealand Citizen
+                                                                      Family Relationship (Temporary)</option>
+                                                                   <option
+                                                                      value="462 - Work and Holiday (Temporary)">
+                                                                      462 - Work and Holiday
+                                                                      (Temporary)</option>
+                                                                   <option value="470 - Professional Development">
+                                                                      470 - Professional Development
+                                                                   </option>
+                                                                   <option value="471 - Trade Skills Training">471
+                                                                      - Trade Skills Training
+                                                                   </option>
+                                                                   <option
+                                                                      value="475 - Skilled - Regional Sponsored">
+                                                                      475 - Skilled - Regional
+                                                                      Sponsored</option>
+                                                                   <option
+                                                                      value="476 - Skilled - Recognised Graduate">
+                                                                      476 - Skilled - Recognised
+                                                                      Graduate</option>
+                                                                   <option
+                                                                      value="482 - Temporary Skills Shortage Visa">
+                                                                      482 - Temporary Skills
+                                                                      Shortage Visa</option>
+                                                                   <option value="485 - Skilled - Graduate">485 -
+                                                                      Skilled - Graduate
+                                                                   </option>
+                                                                   <option value="485 - Temporary Graduate">485 -
+                                                                      Temporary Graduate
+                                                                   </option>
+                                                                   <option
+                                                                      value="487 - Skilled - Regional Sponsored">
+                                                                      487 - Skilled - Regional
+                                                                      Sponsored</option>
+                                                                   <option value="488 - Superyacht Crew">488 -
+                                                                      Superyacht Crew</option>
+                                                                   <option
+                                                                      value="489 - Skilled - Regional (Provisional)">
+                                                                      489 - Skilled - Regional
+                                                                      (Provisional)</option>
+                                                                   <option
+                                                                      value="495 - Skilled - Independent Regional (Provisional)">
+                                                                      495 - Skilled - Independent
+                                                                      Regional (Provisional)</option>
+                                                                   <option
+                                                                      value="496 - Skilled - Designed Area-Sponsored (Provisional)">
+                                                                      496 - Skilled - Designed
+                                                                      Area-Sponsored (Provisional)</option>
+                                                                   <option value="497 - Graduate - Skilled">497 -
+                                                                      Graduate - Skilled
+                                                                   </option>
+                                                                   <option value="500 - Student Visa">
+                                                                      500 - Student Visa</option>
+                                                                   <option
+                                                                      value="500 - Student Visa (Subsequent Entrant)">
+                                                                      500 - Student Visa (Subsequent
+                                                                      Entrant)</option>
+                                                                   <option value="560 - Student (Category A)">560 -
+                                                                      Student (Category A)
+                                                                   </option>
+                                                                   <option
+                                                                      value="562 - Iranian Postgraduate Student">
+                                                                      562 - Iranian Postgraduate
+                                                                      Student</option>
+                                                                   <option value="570 - Independent ELICOS Sector">
+                                                                      570 - Independent ELICOS
+                                                                      Sector</option>
+                                                                   <option value="571 - Schools Sector">571 -
+                                                                      Schools Sector</option>
+                                                                   <option
+                                                                      value="572 - Vocational Education and Training Sector">
+                                                                      572 - Vocational Education and
+                                                                      Training Sector</option>
+                                                                   <option value="573 - Higher Education Sector">
+                                                                      573 - Higher Education Sector
+                                                                   </option>
+                                                                   <option
+                                                                      value="574 - Postgraduate Research Sector">
+                                                                      574 - Postgraduate Research
+                                                                      Sector</option>
+                                                                   <option
+                                                                      value="575 - Non-award Foundation/Other Sector">
+                                                                      575 - Non-award
+                                                                      Foundation/Other Sector</option>
+                                                                   <option value="575 - Non-Award Sector">575 -
+                                                                      Non-Award Sector
+                                                                   </option>
+                                                                   <option value="576 - AusAID and Defence Sector">
+                                                                      576 - AusAID and Defence
+                                                                      Sector</option>
+                                                                   <option
+                                                                      value="576 - Foreign Affairs or Defence Sector">
+                                                                      576 - Foreign Affairs or
+                                                                      Defence Sector</option>
+                                                                   <option value="580 - Student Guardian">580 -
+                                                                      Student Guardian
+                                                                   </option>
+                                                                   <option value="590 - Student Guardian">590 -
+                                                                      Student Guardian
+                                                                   </option>
+                                                                   <option value="600 - Visitor">600
+                                                                      - Visitor</option>
+                                                                   <option
+                                                                      value="601 - Electronic Travel Authority">601
+                                                                      - Electronic Travel
+                                                                      Authority</option>
+                                                                   <option value="602 - Medical Treatment">602 -
+                                                                      Medical Treatment
+                                                                   </option>
+                                                                   <option value="651 - eVisitor">
+                                                                      651 - eVisitor</option>
+                                                                   <option
+                                                                      value="675 - Medical Treatment (Short Stay)">
+                                                                      675 - Medical Treatment (Short
+                                                                      Stay)</option>
+                                                                   <option value="676 - Tourist (Short Stay)">676 -
+                                                                      Tourist (Short Stay)
+                                                                   </option>
+                                                                   <option
+                                                                      value="679 - Sponsored Family Visitor (Short Stay)">
+                                                                      679 - Sponsored Family Visitor
+                                                                      (Short Stay)</option>
+                                                                   <option
+                                                                      value="685 - Medical Treatment (Long Stay)">
+                                                                      685 - Medical Treatment (Long
+                                                                      Stay)</option>
+                                                                   <option value="686 - Tourist (Long Stay)">686 -
+                                                                      Tourist (Long Stay)
+                                                                   </option>
+                                                                   <option value="695 - Return Pending">695 -
+                                                                      Return Pending</option>
+                                                                   <option value="771 - Transit">771
+                                                                      - Transit</option>
+                                                                   <option value="773 - Border">773
+                                                                      - Border</option>
+                                                                   <option
+                                                                      value="781 - Refugee (restricted) or Refugee (B)">
+                                                                      781 - Refugee (restricted) or
+                                                                      Refugee (B)</option>
+                                                                   <option value="783 - PRC (temporary)">783 - PRC
+                                                                      (temporary)</option>
+                                                                   <option
+                                                                      value="784 - Domestic Protection (temporary)">
+                                                                      784 - Domestic Protection
+                                                                      (temporary)</option>
+                                                                   <option value="785 - Temporary Protection">785 -
+                                                                      Temporary Protection
+                                                                   </option>
+                                                                   <option
+                                                                      value="786 - Temporary (Humanitarian Concern)">
+                                                                      786 - Temporary (Humanitarian
+                                                                      Concern)</option>
+                                                                   <option
+                                                                      value="787 - Witness Protection (Trafficking) (Temporary)">
+                                                                      787 - Witness Protection
+                                                                      (Trafficking) (Temporary)</option>
+                                                                   <option value="790 - Safe Haven Enterprise">790
+                                                                      - Safe Haven Enterprise
+                                                                   </option>
+                                                                   <option value="800 - Territorial Asylum">800 -
+                                                                      Territorial Asylum
+                                                                   </option>
+                                                                   <option value="801 - Partner">801
+                                                                      - Partner</option>
+                                                                   <option value="801 - Spouse">801
+                                                                      - Spouse</option>
+                                                                   <option value="802 - Child">802 -
+                                                                      Child</option>
+                                                                   <option value="804 - Aged Parent">
+                                                                      804 - Aged Parent</option>
+                                                                   <option value="805 - Skilled Occupation">805 -
+                                                                      Skilled Occupation
+                                                                   </option>
+                                                                   <option value="806 - Family">806
+                                                                      - Family</option>
+                                                                   <option value="808 - Confirmatory (Residence)">
+                                                                      808 - Confirmatory (Residence)
+                                                                   </option>
+                                                                   <option value="810 - Refugee (Permanent)">810 -
+                                                                      Refugee (Permanent)
+                                                                   </option>
+                                                                   <option value="812 - December 1989 (Permanent)">
+                                                                      812 - December 1989
+                                                                      (Permanent)</option>
+                                                                   <option value="814 - Interdependency">814 -
+                                                                      Interdependency</option>
+                                                                   <option value="815 - PRC permanent">
+                                                                      815 - PRC permanent</option>
+                                                                   <option value="816 - Special (Permanent)">816 -
+                                                                      Special (Permanent)
+                                                                   </option>
+                                                                   <option value="817 - Protection (Permanent)">817
+                                                                      - Protection (Permanent)
+                                                                   </option>
+                                                                   <option
+                                                                      value="818 - High Qualified On-Shore (Permanent)">
+                                                                      818 - High Qualified On-Shore
+                                                                      (Permanent)</option>
+                                                                   <option value="820 - Partner">820
+                                                                      - Partner</option>
+                                                                   <option value="820 - Spouse">820
+                                                                      - Spouse</option>
+                                                                   <option value="825 - Processing">
+                                                                      825 - Processing</option>
+                                                                   <option value="826 - Interdependency">826 -
+                                                                      Interdependency</option>
+                                                                   <option value="828 - Processing (Temporary)">828
+                                                                      - Processing (Temporary)
+                                                                   </option>
+                                                                   <option value="829 - Processing (Residence)">829
+                                                                      - Processing (Residence)
+                                                                   </option>
+                                                                   <option
+                                                                      value="830 - 1 November 1993 (processing)">
+                                                                      830 - 1 November 1993
+                                                                      (processing)</option>
+                                                                   <option
+                                                                      value="831 - Prospective Marriage Spouse">831
+                                                                      - Prospective Marriage
+                                                                      Spouse</option>
+                                                                   <option value="832 - Close Ties">
+                                                                      832 - Close Ties</option>
+                                                                   <option
+                                                                      value="834 - Permanent Resident of Norfolk Island">
+                                                                      834 - Permanent Resident of
+                                                                      Norfolk Island</option>
+                                                                   <option value="835 - Remaining Relative">835 -
+                                                                      Remaining Relative
+                                                                   </option>
+                                                                   <option value="836 - Carer">836 -
+                                                                      Carer</option>
+                                                                   <option value="837 - Orphan Relative">837 -
+                                                                      Orphan Relative</option>
+                                                                   <option value="838 - Aged Dependent Relative">
+                                                                      838 - Aged Dependent Relative
+                                                                   </option>
+                                                                   <option
+                                                                      value="845 - Established Business in Australia">
+                                                                      845 - Established Business in
+                                                                      Australia</option>
+                                                                   <option
+                                                                      value="846 - State/Territory Sponsored Regional Established Business In Australia">
+                                                                      846 - State/Territory
+                                                                      Sponsored Regional Established Business In
+                                                                      Australia</option>
+                                                                   <option
+                                                                      value="850 - Resolution of Status (Temporary)">
+                                                                      850 - Resolution of Status
+                                                                      (Temporary)</option>
+                                                                   <option value="851 - Resolution of Status">851 -
+                                                                      Resolution of Status
+                                                                   </option>
+                                                                   <option
+                                                                      value="852 - Witness Protection (Trafficking) (Permanent)">
+                                                                      852 - Witness Protection
+                                                                      (Trafficking) (Permanent)</option>
+                                                                   <option value="855 - Labour Agreement">855 -
+                                                                      Labour Agreement
+                                                                   </option>
+                                                                   <option
+                                                                      value="856 - Employer Nomination Scheme">856
+                                                                      - Employer Nomination
+                                                                      Scheme</option>
+                                                                   <option
+                                                                      value="856 - Employer Nomination Scheme Nomination">
+                                                                      856 - Employer Nomination
+                                                                      Scheme Nomination</option>
+                                                                   <option
+                                                                      value="857 - Regional Sponsored Migration Scheme">
+                                                                      857 - Regional Sponsored
+                                                                      Migration Scheme</option>
+                                                                   <option
+                                                                      value="857 - Regional Sponsored Migration Scheme Nomination">
+                                                                      857 - Regional Sponsored
+                                                                      Migration Scheme Nomination</option>
+                                                                   <option value="858 - Distinguished Talent">858 -
+                                                                      Distinguished Talent
+                                                                   </option>
+                                                                   <option value="859 - Designated Parent">859 -
+                                                                      Designated Parent
+                                                                   </option>
+                                                                   <option
+                                                                      value="861 - Skilled - Onshore Independent New Zealand Citizen">
+                                                                      861 - Skilled - Onshore
+                                                                      Independent New Zealand Citizen</option>
+                                                                   <option
+                                                                      value="862 - Skilled - Onshore Australian-sponsored New Zealand Citizen">
+                                                                      862 - Skilled - Onshore
+                                                                      Australian-sponsored New Zealand Citizen
+                                                                   </option>
+                                                                   <option
+                                                                      value="863 - Skilled - Onshore Designated Area-sponsored New Zealand Citizen">
+                                                                      863 - Skilled - Onshore
+                                                                      Designated Area-sponsored New Zealand Citizen
+                                                                   </option>
+                                                                   <option value="864 - Contributory Aged Parent">
+                                                                      864 - Contributory Aged Parent
+                                                                   </option>
+                                                                   <option
+                                                                      value="864 - Contributory Aged Parent (Conversion from Subclass 884)">
+                                                                      864 - Contributory Aged Parent
+                                                                      (Conversion from Subclass 884)</option>
+                                                                   <option value="866 - Protection">
+                                                                      866 - Protection</option>
+                                                                   <option
+                                                                      value="880 - Skilled - Independent Overseas Student">
+                                                                      880 - Skilled - Independent
+                                                                      Overseas Student</option>
+                                                                   <option
+                                                                      value="881 - Skilled - Australian-sponsored Overseas Student">
+                                                                      881 - Skilled -
+                                                                      Australian-sponsored Overseas Student
+                                                                   </option>
+                                                                   <option
+                                                                      value="882 - Skilled - Designated Area-sponsored Overseas Student">
+                                                                      882 - Skilled - Designated
+                                                                      Area-sponsored Overseas Student</option>
+                                                                   <option
+                                                                      value="884 - Contributory Aged Parent (Temporary)">
+                                                                      884 - Contributory Aged Parent
+                                                                      (Temporary)</option>
+                                                                   <option value="885 - Skilled - Independent">885
+                                                                      - Skilled - Independent
+                                                                   </option>
+                                                                   <option value="886 - Skilled - Sponsored">886 -
+                                                                      Skilled - Sponsored
+                                                                   </option>
+                                                                   <option value="887 - Skilled - Regional">887 -
+                                                                      Skilled - Regional
+                                                                   </option>
+                                                                   <option
+                                                                      value="888 - Business Innovation and Investment (Permanent)">
+                                                                      888 - Business Innovation and
+                                                                      Investment (Permanent)</option>
+                                                                   <option value="890 - Business Owner">890 -
+                                                                      Business Owner</option>
+                                                                   <option value="891 - Investor">
+                                                                      891 - Investor</option>
+                                                                   <option
+                                                                      value="892 - State/Territory Sponsored Business Owner">
+                                                                      892 - State/Territory
+                                                                      Sponsored Business Owner</option>
+                                                                   <option
+                                                                      value="893 - State/Territory Sponsored Investor">
+                                                                      893 - State/Territory
+                                                                      Sponsored Investor</option>
+                                                                   <option
+                                                                      value="956 - Electronic Travel Authority (Business Entrant - Long Validity)">
+                                                                      956 - Electronic Travel
+                                                                      Authority (Business Entrant - Long Validity)
+                                                                   </option>
+                                                                   <option
+                                                                      value="976 - Electronic Travel Authority (Visitor)">
+                                                                      976 - Electronic Travel
+                                                                      Authority (Visitor)</option>
+                                                                   <option
+                                                                      value="977 - Electronic Travel Authority (Business Entrant - Short Validity)">
+                                                                      977 - Electronic Travel
+                                                                      Authority (Business Entrant - Short Validity)
+                                                                   </option>
+                                                                   <option value="988 - Maritime crew">
+                                                                      988 - Maritime crew</option>
+                                                                   <option value="992 - Statutory Visitor">992 -
+                                                                      Statutory Visitor
+                                                                   </option>
+                                                                   <option value="995 - Diplomatic (Temporary)"
+                                                                      selected="selected">995 -
+                                                                      Diplomatic (Temporary)</option>
+
+                                                                </select>
+                                                             </div>
+
+
+                                                             <hr class="seperator">
+
+                                                             <label for="departDate">
+                                                                <h6>Current visa expiry</h6>
+                                                             </label><span class="required">*</span>
+                                                             <div class="expirydate">
+                                                                <input type="date" id="user_visaexpirydate"
+                                                                   name="user_visaexpirydate" class="form-control"
+                                                                   required>
+                                                             </div>
+
+                                                          </div>
+                                                       </div>
+                                                    </div>
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                                   <hr class="seperator">
+                                  <div class="partner" id="partner" name="partner">
+                                     <label>
+                                        <h6>Partner/ spouse is an Australian Citizen, Permanent
+                                           Resident or Newzealand Citizen? </label> <span class="required">*</span></h6>
+                                    
+                                     <input type="radio" name="user_spouse_citizen" id="user_spouse_citizen"
+                                        value="Yes">Yes<br>
+                                     <input type="radio" name="user_spouse_citizen" id="user_spouse_citizen"
+                                        value="No" checked>No<br>
+                                  </div>
+
+                                  <hr class="seperator">
+                                       <div class="form-group w-60">
+                                                                                    <label for="occupation" class="">
+                                             <h6>Usual occupation</h6>
+                                          </label><span class="required">*</span>
+                                          <div class="">
+                                             <input type="text" id="user_occupation" placeholder="Doctor"
+                                                name="user_occupation" class="form-control" autofocus required>
+                                          </div>
+                                       </div>
+                                       <hr class="seperator">
+                                                                              <div class="form-group w-60">
+                                          <label for="education">
+                                             <h6>Highest level of education</h6>
+                                          </label><span class="required">*</span>
+                                          <select class="form-control" id="user_education" name="user_education"
+                                             required>
+                                             <option value="" salected></option>
+                                             <option>Primary School</option>
+                                             <option>Middle School</option>
+                                             <option>High School</option>
+                                             <option>Senior High School</option>
+                                             <option>Trade Apprenticeship</option>
+                                             <option>Training (Esternal)</option>
+                                             <option>Training (On the Job)</option>
+                                             <option>Certificate I</option>
+                                             <option>Certificate II</option>
+                                             <option>Certificate III</option>
+                                             <option>Certificate IV</option>
+                                             <option>Diploma</option>
+                                             <option>Advanced Diploma</option>
+                                             <option>Associate Degree</option>
+                                             <option>Bachelor Degree</option>
+                                             <option>Honours Degree</option>
+                                             <option>Graduate Certificate</option>
+                                             <option>Graduate Diploma</option>
+                                             <option>Postgraduate Cirtificate</option>
+                                             <option>Postgraduate Diploma</option>
+                                             <option>Masters Degree</option>
+                                             <option>Doctorial Degree</option>
+                                             <option>Other</option>
+                                          </select>
+                                       </div>
+                                                                              <hr class="seperator">
+                                       <label class="form-label" for="customFile">
+                                          <h6>Upload CV by clicking the button below or dragging
+                                             a file here (only 1 file allowed)</h6>
+                                       </label>
+                                       <div class="input-group mb-3 w-60">
+                                          <div class="input-group-prepend">
+                                             <span class="input-group-text">Upload</span>
+                                          </div>
+                                          <div class="custom-file ">
+                                             <input type="file" class="custom-file-input" name="file"
+                                                id="file">
+                                             <label class="custom-file-label" for="inputGroupFile01"></label>
+                                          </div>
+                                       </div>
+                                                                              <hr class="seperator">
+                                       <div class="form-group">
+                                          <label for="offer" class="">
+                                             <h6>Job offer from an Australian Business or Organisation?</h6>
+                                          </label><span class="required">*</span> <br>
+                                          <input type="radio" name="user_job_offer" id="user_job_offer"
+                                             value="Yes">Yes<br>
+                                          <input type="radio" name="user_job_offer" id="user_job_offer" value="No"
+                                             checked>No<br>
+                                       </div>
+                                       <hr class="seperator">
+                                       <div class="form-group ">
+                                          <label for="comment">
+                                             <h5>Note/Reference</h5>
+                                          </label>
+                                          <textarea class="form-control" id="user_comment" name="user_comment"
+                                             rows="3"></textarea>
+                                       </div>
+
+                                       <hr class="seperator">
+                                       <div class="form-check">
+                                          <label for="appoint" class="">
+                                             <h6>How likely are you to appoint a Migration Agent?</h6>
+                                          </label><span class="required">*</span> <br>
+                                          <input class="form-check-input" type="radio" name="user_appoint_agent"
+                                             id="user_appoint_agent" value="Not Likely"><label class="form-check-label"
+                                             for="flexRadioDefault1">Not Likely</label><br>
+                                          <input class="form-check-input" type="radio" name="user_appoint_agent"
+                                             id="user_appoint_agent" value="Likely"><label class="form-check-label"
+                                             for="flexRadioDefault1"> Likely</label><br>
+                                          <input class="form-check-input" type="radio" name="user_appoint_agent"
+                                             id="user_appoint_agent" value="Very Likely" checked><label
+                                             class="form-check-label" for="flexRadioDefault1">Very Likely</label>
+                                       </div>
+
+                                       <hr class="seperator">
+                                       <div class="form-group w-60">
+                                          <label for="planToStart">
+                                             <h6>Plan to start the process</h6>
+                                          </label><span class="required">*</span>
+                                          <select class="form-control" id="user_start_process" name="user_start_process"
+                                             required>
+                                             <option select=""></option>
+                                             <option>Immediately</option>
+                                             <option>Within 1 month</option>
+                                             <option>Within 3 months</option>
+                                             <option>Within 6 month</option>
+                                             <option>6 months or more</option>
+                                          </select>
+
+                                       </div>  
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                 </div>
+                                
+                                
+
+                                    <!-- Business Inquiry form -->
+                                 <div class="tab-pane fade" id="tab2info"> 
+
+                                    
+                                       <form class="justify-content-center" role="form" action="/save" method="POST"
+                                          class="needs-validation" novalidate>
+         
+         
+                                          <div class="form-group w-60">
+                                             <label for="firstName" class="firstName">
+                                                <h6>Business/Organisation name</h6>
+                                             </label>
+                                             <div class="Name">
+                                                <input type="text" id="business_name" placeholder="diya migration Services"
+                                                   class="form-control" autofocus required>
+                                             </div>
+                                          </div>
+                                          <hr class="seperator">
+                                          <div class="form-group w-60 ">
+                                             <label for="ABN_Number" class="ABN_Number">
+                                                <h6>Australian Business Number (ABN)</h6>
+                                             </label>
+                                             <div class="ABN_Number">
+                                                <input type="text" id="ABN_Number" placeholder="ABN Number" class="form-control"
+                                                   autofocus required>
+                                             </div>
+                                          </div>
+         
+                                          <hr class="seperator">
+                                          <div class="form-group w-60">
+                                             <label for="preson_info" class="preson_info">
+                                                <h6>Best contact person</h6>
+                                             </label>
+                                             <div class="row">
+                                                <div class="col col-sm-6">
+                                                   <input type="text" id="fname" name="fname" class="form-control"
+                                                      placeholder="First name"><br>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                   <input type="text" id="lname" name="lname" class="form-control"
+                                                      placeholder="Last name">
+                                                </div>
+                                             </div>
+                                          </div>
+         
+         
+         
+                                          <hr class="seperator">
+                                          <div class="form-group w-60">
+                                             <label for="email" class="">
+                                                <h6>Best contact person email*</h6>
+                                             </label>
+                                             <div class="email">
+                                                <input type="email" id="email" placeholder="abc@email.com" class="form-control"
+                                                   name="email" required>
+                                             </div>
+                                          </div>
+         
+                                          <hr class="seperator">
+                                          <div class="form-group w-60">
+                                             <label for="phoneNumber" class="">
+                                                <h6>Best contact person phone number</h6>
+                                             </label>
+                                             <div class="phoneNumber">
+                                                <input type="phoneNumber" id="mob" placeholder="Phone number"
+                                                   class="form-control" required>
+                                                <span class="help-block">"Your phone number won't be disclosed anywhere"</span>
+                                             </div>
+                                          </div>
+                                          
+                                          <hr class="seperator">
+         
+                                          <div class="form-group ">
+                                             <label for="comment">
+                                                <h5>Note/Reference</h5>
+                                             </label>
+         
+         
+                                             <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                                          </div>
+         
+         
+                                          <hr class="seperator">
+                                          <div class="form-check">
+                                             <label for="appoint" class="">
+                                                <h6>How likely are you to appoint a Migration Agent?</h6>
+                                              </label> <br>                             
+                                             <input class="form-check-input" type="radio" name="appoint_agent" id="appoint_agent" value="Not Likely"><label class="form-check-label" for="flexRadioDefault1">Not Likely</label><br>
+                                             <input class="form-check-input" type="radio" name="appoint_agent" id="appoint_agent" value="Likely"><label class="form-check-label" for="flexRadioDefault1"> Likely</label><br>
+                                             <input class="form-check-input" type="radio" name="appoint_agent" id="appoint_agent" value="Very Likely"><label class="form-check-label" for="flexRadioDefault1">Very Likely</label> 
+                                          </div>
+                                    
+         
+                                    <hr class="seperator">
+         
+                                    <div class="form-group w-60">
+                                       <label for="planToStart">
+                                          <h6>Plan to start the process</h6>
+                                       </label>
+                                       <select class="form-control" id="start_process" required>
+                                          <option select=""></option>
+                                          <option>Immediately</option>
+                                          <option>Within 1 month</option>
+                                          <option>Within 3 months</option>
+                                          <option>Within 6 month</option>
+                                          <option>6 months or more</option>
+                                       </select>
+                                    </div>
+                                    
+         
+         
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 
+                                    </form>
+                                 
+                                 </div>
+
+
+                                    <div class="tab-pane fade" id="tab3info">
+                                       <!-- Other form -->
+                                       <form class="justify-content-center" role="form" action="/save" method="POST" class="needs-validation" novalidate>
+                                           <div class="form-group w-60 ">
+                                             <label for="firstName" class="firstName">
+                                               <h6>First Name</h6>
+                                             </label>
+                                             <div class="firstName">  
+                                               <input type="text" id="name" name="name" placeholder="John" class="form-control" autofocus required>
+                                             </div>
+                                           </div>
+                                     
+                                           <hr class="seprator">
+                                           <div class="form-group w-60 ">
+                                             <label for="lastName" class="lastName"><h6>Last Name</h6></label>
+                                             <div class="lastname">
+                                               <input type="text" id="surame" name="surname" placeholder="Smith" class="form-control"  autofocus required>
+                                             </div>
+                                           </div>
+                                       
+                                     
+                                     <hr class="seprator">
+                                           <div class="form-group w-60">
+                                             <label for="email" class="">
+                                               <h6>Email*</h6>
+                                             </label>
+                                             <div class="email">
+                                               <input type="email" id="email" placeholder="abc@email.com" class="form-control" name="email" required>
+                                             </div>
+                                           </div>
+                                     
+                                      <hr class="seprator">
+                                           <div class="form-group w-60">
+                                             <label for="phoneNumber" class="">
+                                               <h6>Phone number</h6>
+                                             </label>
+                                             <div class="phoneNumber">
+                                               <input type="phoneNumber" id="mob" name="mob" placeholder="Phone number" class="form-control" required>
+                                               <span class="help-block">"Your phone number won't be disclosed anywhere"</span>
+                                             </div>
+                                           </div>
+                                     
+                                     
+                                           
+                                            <hr class="seperator">
+             
+                                              <div class="form-group ">
+                                                 <label for="comment">
+                                                    <h5>Note/Reference</h5>
+                                                 </label>
+             
+             
+                                                 <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                                              </div>
+             
+                                              
+                                              <hr class="seperator">
+                                              <div class="form-check">
+                                                 <label for="appoint" class="">
+                                                    <h6>How likely are you to appoint a Migration Agent?</h6>
+                                                  </label> <br>                             
+                                                 <input class="form-check-input" type="radio" name="appoint_agent" id="appoint_agent" value="Not Likely"><label class="form-check-label" for="flexRadioDefault1">Not Likely</label><br>
+                                                 <input class="form-check-input" type="radio" name="appoint_agent" id="appoint_agent" value="Likely"><label class="form-check-label" for="flexRadioDefault1"> Likely</label><br>
+                                                 <input class="form-check-input" type="radio" name="appoint_agent" id="appoint_agent" value="Very Likely"><label class="form-check-label" for="flexRadioDefault1">Very Likely</label> 
+                                              </div>
+                                              
+                                              
+                                              <hr class="seperator">
+                                              <div class="form-group w-60">
+                                                 <label for="planToStart">
+                                                    <h6>Plan to start the process</h6>
+                                                 </label>
+                                                 <select class="form-control" id="start_process" name="start_process" required>
+                                                    <option select=""></option>
+                                                    <option>Immediately</option>
+                                                    <option>Within 1 month</option>
+                                                    <option>Within 3 months</option>
+                                                    <option>Within 6 month</option>
+                                                    <option>6 months or more</option>
+                                                 </select>
+                                              </div>
+                                              <div class="form group w-60">
+                                               <button type="submit" class="btn btn-primary">Submit</button>
+                                               <br>
+                                              </div>
+                                        </form>
+                                       </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                    
+                   </div>
+                    
+
+
+                             
+                       
+
+                     
+
+            
+                     
+
+                     
+                    
+                        
+              
+
+            
+
+   </section>
+
+   <!-- /.content -->
+   </div>
+   <!-- /.content-wrapper -->
+   {{>footer}}
+   </div>
+   <!-- ./wrapper -->
+   <!-- Start Core Plugins
+         =====================================================================-->
+   <!-- jQuery -->
+   <script src="assets/plugins/jQuery/jquery-1.12.4.min.js" type="text/javascript"></script>
+   <!-- jquery-ui -->
+   <script src="assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+   <!-- Bootstrap -->
+   <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+   <!-- lobipanel -->
+   <script src="assets/plugins/lobipanel/lobipanel.min.js" type="text/javascript"></script>
+   <!-- Pace js -->
+   <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+   <!-- SlimScroll -->
+   <script src="assets/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+   <!-- FastClick -->
+   <script src="assets/plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+   <!-- CRMadmin frame -->
+   <script src="assets/dist/js/custom.js" type="text/javascript"></script>
+   <!-- End Core Plugins
+         =====================================================================-->
+   <!-- Start Theme label Script
+         =====================================================================-->
+   <!-- Dashboard js -->
+   <script src="assets/dist/js/dashboard.js" type="text/javascript"></script>
+   <!-- End Theme label Script
+         =====================================================================-->
+         <script type="text/javascript">
+
+      $(document).ready(function () {
+
+
+
+         $('#general_Form').bootstrapValidator({
+            feedbackIcons: {
+               valid: 'glyphicon glyphicon-ok',
+               invalid: 'glyphicon glyphicon-remove',
+               validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+
+               user_name: {
+                  validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Please Enter the First name with minimum 2 letters length'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the First name'
+                     }
+                  }
+               },
+               user_surname: {
+                  validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Please Enter the Last name with minimum 2 letters length'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the Last name'
+                     }
+                  }
+               },
+
+               user_birthday: {
+                  validators: {
+                     notEmpty: {
+                        message: 'DOB is required and cannot be empty'
+                     },
+                     date: {
+                        message: 'The value is not a valid date',
+                        format: 'DD/MM/YYYY'
+                     }
+                  }
+               },
+
+               user_phone_num: {
+                  validators: {
+                     stringLength: {
+                        min: 5,
+                     },
+                     numeric: {
+                        message: 'The phone number must be a number'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the phone number'
+                     }
+                  }
+               },
+               address: {
+                  validators: {
+                     stringLength: {
+                        min: 15,
+                        max: 100,
+                        message: 'Please enter at least 15 characters and no more than 100'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter Address'
+                     }
+                  }
+               },
+              
+               user_email: {
+                  validators: {
+                     notEmpty: {
+                        message: 'Please Enter the email address'
+                     },
+                     emailAddress: {
+                        message: 'Please Enter a valid email address'
+                     }
+                  }
+               },
+
+               user_passport_number: {
+                  validators: {
+                     stringLength: {
+                        min: 8,
+                     },
+                     numeric: {
+                        message: 'The passport number must be a number'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the passport number'
+                     }
+                  }
+               },
+
+               user_arrivaldate: {
+                  validators: {
+                     notEmpty: {
+                        message: 'Arrival date is required and cannot be empty'
+                     },
+                     date: {
+                        message: 'The value is not a valid date',
+                        format: 'DD/MM/YYYY'
+                     }
+                  }
+               },
+               user_occupation: {
+                  validators: {
+                     stringLength: {
+                        min: 3,
+                        max: 50,
+                        message: 'Please enter at least 3 characters and no more than 50'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the occupation'
+                     }
+                  }
+               },
+
+
+
+
+            },
+
+         });
+      });
+      
+
+      $(document).ready(function () {
+
+         
+
+$('#business_Form').bootstrapValidator({
+   feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+   },
+   fields: {
+business_name: {
+validators: {
+stringLength: {
+   min: 3,
+   max: 50,
+   message: 'Please enter at least 3 characters and no more than 50'
+},
+notEmpty: {
+   message: 'Please Enter the Business Name'
+}
+}
+},
+
+abn_number: {
+                  validators: {
+                     stringLength: {
+                        min: 5,
+                     },
+                     numeric: {
+                        message: 'The ABN number must be numbers'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the Australian Business (ABN) number'
+                     }
+                  }
+               },
+
+
+
+               fname: {
+                  validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Please Enter the First name with minimum 2 letters length'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the First name'
+                     }
+                  }
+               },
+               lname: {
+                  validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Please Enter the Last name with minimum 2 letters length'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the Last name'
+                     }
+                  }
+               },
+
+               best_email: {
+                  validators: {
+                     notEmpty: {
+                        message: 'Please Enter email address for the best contact'
+                     },
+                     emailAddress: {
+                        message: 'Please Enter a valid email address'
+                     }
+                  }
+               },
+
+               best_phone: {
+                  validators: {
+                     stringLength: {
+                        min: 5,
+                     },
+                     numeric: {
+                        message: 'The phone number must be a number'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the best contact phone number'
+                     }
+                  }
+               },
+
+
+
+
+},
+});
+
+
+});
+
+
+         $(document).ready(function () {
+
+         
+
+                  $('#other_Form').bootstrapValidator({
+                     feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                     },
+                     fields: {
+                        name: {
+                  validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Please Enter the First name with minimum 2 letters length'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the First name'
+                     }
+                  }
+               },
+               surname: {
+                  validators: {
+                     stringLength: {
+                        min: 2,
+                        message: 'Please Enter the Last name with minimum 2 letters length'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the Last name'
+                     }
+                  }
+               },
+
+
+               email: {
+                  validators: {
+                     notEmpty: {
+                        message: 'Please Enter email address for the best contact'
+                     },
+                     emailAddress: {
+                        message: 'Please Enter a valid email address'
+                     }
+                  }
+               },
+
+               mob: {
+                  validators: {
+                     stringLength: {
+                        min: 5,
+                     },
+                     numeric: {
+                        message: 'The phone number must be a number'
+                     },
+                     notEmpty: {
+                        message: 'Please Enter the best contact phone number'
+                     }
+                  }
+               },
+
+
+
+            },
+      });
+
+
+   });
+
+
+
+
+
+   </script>
+</body>
+
+<!-- Mirrored from thememinister.com/crm/add-customer.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 14 Dec 2020 08:30:34 GMT -->
+
+</html>   

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>CRM Admin Panel</title>
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="/assets/dist/img/ico/favicon.png" type="image/x-icon">
+        <!-- Bootstrap -->
+        <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Bootstrap rtl -->
+        <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
+        <!-- Pe-icon-7-stroke -->
+        <link href="/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
+        <!-- style css -->
+        <link href="/assets/dist/css/stylecrm.css" rel="stylesheet" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+        
+<SCRIPT LANGUAGE="javascript">
+function ClearHistory()
+{
+     var backlen = history.length;
+     history.go(-backlen);
+     window.location.href = loggedOutPageUrl
+}
+</SCRIPT> 
+<script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
+</head>
+     
+<body >
+ 
+   
+       <!-- Content Wrapper -->
+        <div class="login-wrapper">
+            <div class="container-center">
+            <div class="login-area">
+                <div class="panel panel-bd panel-custom">
+                    <div class="panel-heading">
+                        <div class="view-header">
+                            <div class="header-icon">
+                                <i class="pe-7s-unlock"></i>
+                            </div>
+                            <div class="header-title">
+                                <h3>Login</h3>
+
+                                <small><strong>Please enter your credentials to login.</strong></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                <form action="/auth/login" method="POST">
+  <div class="form-group">
+ <label class="control-label" for="username">Username</label>
+   <input type="email" placeholder="example@gmail.com" title="Please enter you username" required="" value="" class="form-control" id="email" name="email">
+ <span class="help-block small">Your unique username to app</span>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" title="Please enter your password" placeholder="******" required="" value="" class="form-control" id="password" name="password">
+  <span class="help-block small">Your strong password</span>
+  </div>
+  
+  <p><a href="/forgotpassword">Forgotpassword?</a></p>
+  <p><a href="/register">Don't have an account?</a></p>
+    <button type="submit" class="btn btn-primary">Login</button>
+     <a class="btn btn-warning" href="/register">Register</a>
+</form>
+            </div>
+        </div>
+        {{#if message}}
+          <h3 class="alert alert-danger mt-3.5">{{message}}</h3>
+        {{/if}}
+    </div>
+    <!-- bootstrap js -->
+        <script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+</body>
+</html>
